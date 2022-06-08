@@ -1,6 +1,6 @@
 let express = require('express');
 let mongodb = require('mongodb').MongoClient;
-let mongoUrl = "mongodb://localhost:27017"
+let mongoUrl = "mongodb+srv://test:test1@cluster0.ib5m3.mongodb.net/?retryWrites=true&w=majority"
 
 
 /*
@@ -40,7 +40,7 @@ function router(menu) {
             }
             else {
                 let dbObj = dc.db('fullstack');
-                dbObj.collection('products').find({category_id:Number(id)}).toArray((err, response) => {
+                dbObj.collection('products').find({ category_id: Number(id) }).toArray((err, response) => {
                     res.render('product', { title: 'Products Page', menu, data: response })
                 })
             }
